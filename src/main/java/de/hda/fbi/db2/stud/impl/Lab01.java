@@ -42,20 +42,19 @@ public class Lab01 extends Lab01Data {
 
       String categoryName = line[7];
 
-      Category t_category;
-      if(tempList.containsKey(categoryName)){
-        t_category = tempList.get(categoryName);
-        t_category.addQuestion(question1);
-      }
-      else {
-        t_category = new Category(categoryName);
-        tempList.put(categoryName, t_category);
-        t_category.addQuestion(question1);
+      Category c;
+      if (tempList.containsKey(categoryName)) {
+        c = tempList.get(categoryName);
+        c.addQuestion(question1);
+      } else {
+        c = new Category(categoryName);
+        tempList.put(categoryName, c);
+        c.addQuestion(question1);
 
-        categoriesList.add(t_category);
+        categoriesList.add(c);
       }
 
-      question1.setCategory(t_category);
+      question1.setCategory(c);
       questionsList.add(question1);
     }
   }

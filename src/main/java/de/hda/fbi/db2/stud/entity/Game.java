@@ -28,7 +28,7 @@ public class Game {
 
   public Game(Player player, Date gameStart) {
     this.player = player;
-    this.gameStart = gameStart;
+    this.gameStart = new Date(gameStart.getTime());
   }
 
   public int getId() {
@@ -44,19 +44,19 @@ public class Game {
   }
 
   public Date getGameStart() {
-    return gameStart;
+    return new Date(gameStart.getTime());
   }
 
   public void setGameStart(Date gameStart) {
-    this.gameStart = gameStart;
+    this.gameStart = new Date(gameStart.getTime());
   }
 
   public Date getGameEnd() {
-    return gameEnd;
+    return new Date(gameEnd.getTime());
   }
 
   public void setGameEnd(Date gameEnd) {
-    this.gameEnd = gameEnd;
+    this.gameEnd = new Date(gameEnd.getTime());
   }
 
   public List<Category> getSelectedCategories() {

@@ -28,8 +28,14 @@ public class Category {
     return questionList;
   }
 
+  /**
+   * Adds a Question object to the questions list.
+   *
+   */
   public void addQuestion(Question question) {
-    if (questionList == null ) questionList = new ArrayList<>();
+    if (questionList == null) {
+      questionList = new ArrayList<>();
+    }
     this.questionList.add(question);
   }
 
