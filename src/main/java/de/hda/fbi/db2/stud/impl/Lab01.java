@@ -1,14 +1,13 @@
 package de.hda.fbi.db2.stud.impl;
 
 import de.hda.fbi.db2.api.Lab01Data;
+import de.hda.fbi.db2.stud.entity.Answer;
 import de.hda.fbi.db2.stud.entity.Category;
 import de.hda.fbi.db2.stud.entity.Question;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
+
 
 public class Lab01 extends Lab01Data {
   List<Question> questionsList = new ArrayList<>();
@@ -35,10 +34,19 @@ public class Lab01 extends Lab01Data {
 
       int id = Integer.parseInt(line[0]);
       String question = line[1];
-      List<String> answersList = Arrays.asList(line[2], line[3], line[4], line[5]);
+
       int solutionIndex = Integer.parseInt(line[6]);
 
-      Question question1 = new Question(id, question, answersList, solutionIndex);
+      ArrayList<Answer> answersList = new ArrayList<>();
+      for (int j = 2; j < 6; j++) {
+        Answer answer = new Answer(line[j]);
+        if (j - 1 == solutionIndex) {
+          answer.setCorrect(true);
+        }
+        answersList.add(answer);
+      }
+
+      Question question1 = new Question(id, question, answersList);
 
       String categoryName = line[7];
 

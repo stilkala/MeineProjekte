@@ -1,5 +1,6 @@
 package de.hda.fbi.db2.stud.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import javax.persistence.GeneratedValue;
@@ -8,10 +9,12 @@ import javax.persistence.OneToMany;
 
 public class Player {
   @Id
+  @GeneratedValue
+  private int id;
   private String name;
 
   @OneToMany
-  private List<Game> games;
+  private ArrayList<Game> games;
 
   public Player(String name) {
     this.name = name;
@@ -25,7 +28,7 @@ public class Player {
     this.name = name;
   }
 
-  public List<Game> getGames() {
+  public ArrayList<Game> getGames() {
     return games;
   }
 

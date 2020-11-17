@@ -1,5 +1,6 @@
 package de.hda.fbi.db2.stud.entity;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -21,7 +22,7 @@ public class Game {
   private Date gameEnd;
 
   @OneToMany
-  private List<Category> selectedCategories;
+  private ArrayList<Category> selectedCategories;
 
   @OneToMany
   private Map<Question, Integer> questionList;
@@ -59,11 +60,11 @@ public class Game {
     this.gameEnd = new Date(gameEnd.getTime());
   }
 
-  public List<Category> getSelectedCategories() {
+  public ArrayList<Category> getSelectedCategories() {
     return selectedCategories;
   }
 
-  public void setSelectedCategories(List<Category> selectedCategories) {
+  public void setSelectedCategories(ArrayList<Category> selectedCategories) {
     this.selectedCategories = selectedCategories;
   }
 
