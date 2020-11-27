@@ -65,5 +65,19 @@ public class Lab01 extends Lab01Data {
       question1.setCategory(c);
       questionsList.add(question1);
     }
+  System.out.println("*");
+  System.out.println("loaded " + categoriesList.size() + " categories");
+  System.out.println("loaded " + questionsList.size() + " questions");
+  System.out.println("*");
+
+  for( Category i : categoriesList){
+    System.out.println(i.getCategory());
+  }
+  System.out.println("*");
+
+  for( Question i : questionsList){
+    System.out.println(i.getQuestion());
+  }
+  System.out.println("*");
   }
 }
