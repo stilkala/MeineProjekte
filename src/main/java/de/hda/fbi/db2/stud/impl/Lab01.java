@@ -76,7 +76,15 @@ public class Lab01 extends Lab01Data {
   System.out.println("*");
 
   for( Question i : questionsList){
-    System.out.println(i.getQuestion());
+    System.out.println(i.getQuestion() + " [" + i.getCategory() + "]");
+    int tmp=-3;
+    for(Answer a : i.getAnswersList()){
+      System.out.println(i.getAnswersList().indexOf(a)+ ". " + a.getAnswer() );
+      if(a.isCorrect()){
+        tmp = i.getAnswersList().indexOf(a);
+      }
+    }
+    System.out.println("solution index: " + tmp);
   }
   System.out.println("*");
   }
