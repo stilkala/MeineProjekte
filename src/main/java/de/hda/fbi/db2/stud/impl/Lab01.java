@@ -65,27 +65,27 @@ public class Lab01 extends Lab01Data {
       question1.setCategory(c);
       questionsList.add(question1);
     }
-  System.out.println("*");
-  System.out.println("loaded " + categoriesList.size() + " categories");
-  System.out.println("loaded " + questionsList.size() + " questions");
-  System.out.println("*");
+    System.out.println("*");
+    System.out.println("loaded " + categoriesList.size() + " categories");
+    System.out.println("loaded " + questionsList.size() + " questions");
+    System.out.println("*");
 
-  for( Category i : categoriesList){
-    System.out.println(i.getName());
-  }
-  System.out.println("*");
-
-  for( Question i : questionsList){
-    System.out.println(i.getQuestion() + " [" + i.getCategory() + "]");
-    int tmp=-3;
-    for(Answer a : i.getAnswersList()){
-      System.out.println(i.getAnswersList().indexOf(a)+ ". " + a.getAnswer() );
-      if(a.isCorrect()){
-        tmp = i.getAnswersList().indexOf(a);
-      }
+    for (Category i : categoriesList) {
+      System.out.println(i.getName());
     }
-    System.out.println("solution index: " + tmp);
-  }
-  System.out.println("*");
+    System.out.println("*");
+
+    for (Question i : questionsList) {
+      System.out.println(i.getQuestion() + " [" + i.getCategory() + "]");
+      int tmp = - 3;
+      for (Answer a : i.getAnswersList()) {
+        System.out.println(i.getAnswersList().indexOf(a) + ". " + a.getAnswer());
+        if (a.isCorrect()) {
+          tmp = i.getAnswersList().indexOf(a);
+        }
+      }
+      System.out.println("solution index: " + tmp);
+    }
+    System.out.println("*");
   }
 }
