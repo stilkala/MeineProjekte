@@ -4,19 +4,23 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
+@Entity
 public class Question {
 
   @Id
   private int id;
   private String question;
-  private ArrayList<Answer> answersList;
+  @OneToMany(mappedBy = "question", cascade = CascadeType.PERSIST)
+  private List<Answer> answersList;
 
   @ManyToOne
   private Category category;
+
+  Question(){
+
+  }
 
   /**
    * Constructor for the Questions Class.
@@ -39,7 +43,7 @@ public class Question {
     this.question = question;
   }
 
-  public ArrayList<Answer> getAnswersList() {
+  public List<Answer> getAnswersList() {
     return answersList;
   }
 

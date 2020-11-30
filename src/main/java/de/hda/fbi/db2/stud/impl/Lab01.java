@@ -71,7 +71,7 @@ public class Lab01 extends Lab01Data {
   System.out.println("*");
 
   for( Category i : categoriesList){
-    System.out.println(i.getCategory());
+    System.out.println(i.getName());
   }
   System.out.println("*");
 

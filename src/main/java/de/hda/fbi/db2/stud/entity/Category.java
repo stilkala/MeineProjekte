@@ -2,28 +2,32 @@ package de.hda.fbi.db2.stud.entity;
 
 import java.util.ArrayList;
 import java.util.Objects;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Category {
   @Id
   @GeneratedValue
   private int id;
-  private String category;
+  @Column(unique = true)
+  private String name;
+  @OneToMany(mappedBy = "category")
   private ArrayList<Question> questionList;
 
-  public Category(String category) {
-    this.category = category;
+  Category(){
+
   }
 
-  public String getCategory() {
-    return category;
+  public Category(String name) {
+    this.name = name;
   }
 
-  public void setCategory(String category) {
-    this.category = category;
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
   }
 
   public ArrayList<Question> getQuestionList() {
@@ -50,16 +54,16 @@ public class Category {
       return false;
     }
     Category category1 = (Category) o;
-    return Objects.equals(category, category1.category);
+    return Objects.equals(name, category1.name);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(category);
+    return Objects.hash(name);
   }
 
   @Override
   public String toString() {
-    return category;
+    return name;
   }
 }
