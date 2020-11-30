@@ -1,13 +1,24 @@
 package de.hda.fbi.db2.stud.entity;
 
 import java.util.Objects;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
+@Entity
 public class Answer {
   @Id
+  @GeneratedValue
+  private int id;
   private String answer;
   private boolean isCorrect;
+  @ManyToOne
   private Question question;
+
+  Answer(){
+
+  }
 
   public Answer(String answer) {
     this.answer = answer;
