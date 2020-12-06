@@ -1,0 +1,16 @@
+package Action;
+
+
+import GUI.Gui;
+
+public class main {
+
+	public static void main(String[] args) {
+		
+		Gui g=new Gui();
+		g.create();
+		// TODO Auto-generated method stub
+
+	}
+
+}

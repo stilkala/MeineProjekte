@@ -1,0 +1,47 @@
+package Game;
+
+import java.util.concurrent.ThreadLocalRandom;
+
+import GUI.Gui;
+
+public class Essen {
+private int x;
+private int y;
+
+
+
+public Essen() {
+	
+	//this.x=ThreadLocalRandom.current().nextInt(0,15)*32+Gui.xoff;
+	//this.y=ThreadLocalRandom.current().nextInt(0,15)*32+Gui.yoff;
+	this.x=Snake.h.getX();
+	this.y=Snake.h.getY();
+	
+}
+
+public void reset() {
+	
+	this.x=ThreadLocalRandom.current().nextInt(0,15)*32+Gui.xoff;
+	this.y=ThreadLocalRandom.current().nextInt(0,15)*32+Gui.yoff;
+	
+	
+}
+
+public int getX() {
+	return x;
+}
+
+public void setX(int x) {
+	this.x = x;
+}
+
+public int getY() {
+	return y;
+}
+
+public void setY(int y) {
+	this.y = y;
+}
+
+
+}

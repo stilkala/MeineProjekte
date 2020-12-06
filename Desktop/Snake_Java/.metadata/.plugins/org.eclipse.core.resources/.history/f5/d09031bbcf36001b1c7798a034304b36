@@ -1,0 +1,39 @@
+package Game;
+
+import java.util.ArrayList;
+
+public class Snake {
+	
+	public static Head h= new Head(7,7);
+	
+	public static boolean waitToMove=false;
+		
+		
+	public static ArrayList <Tail> tl = new ArrayList();
+        
+	public static void addTail() {
+		
+		if(tl.size()<1) {
+			tl.add(new Tail(h.getX(),h.getY()));
+		}
+		
+		else {}
+		tl.add(new Tail(tl.get(tl.size()-1).getX(),tl.get(tl.size()-1).getY()));
+		
+	}
+	
+    public static void move() {
+		
+		
+		
+	}
+	
+	
+	
+	 
+	
+		
+	
+	
+
+}

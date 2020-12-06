@@ -1,0 +1,8 @@
+package GUI;
+
+public class Graphics {
+	
+	public void create() {}
+	Graphics g= new Graphics();
+
+}

@@ -1,0 +1,42 @@
+package Timer;
+
+import Action.Collision;
+import Game.Snake;
+
+public class GameTimer extends Thread {
+	
+	public static boolean running =true;
+	
+	public void run() {
+		
+		int slp=300;
+		try {
+			sleep(slp);
+			Snake.move();
+			Snake.waitToMove=false;
+			if(Collision.colEssen2()) {
+				
+						Snake.essen.reset();
+						Snake.addTail();
+						slp-=10;
+				
+			}
+			if(Collision.self()) {
+				Snake.tl.clear();
+			}
+			if(Collision.wall()) {
+				Snake.tl.clear();
+				Snake.h.setX(7);
+				Snake.h.setY(7);
+			}
+			
+			run();
+			
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
+}

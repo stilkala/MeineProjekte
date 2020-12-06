@@ -1,0 +1,22 @@
+package Timer;
+
+import Game.Snake;
+
+public class GameTimer extends Thread {
+	
+	public static boolean running =true;
+	
+	public void run() {
+		
+		try {
+			sleep(200);
+			Snake.move();
+			Snake.waitToMove=false;
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
+}

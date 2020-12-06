@@ -1,0 +1,102 @@
+package Game;
+
+import java.awt.Point;
+import java.util.ArrayList;
+
+import GUI.Gui;
+
+public class Snake {
+	
+	public static Head h= new Head(7,7);
+	
+	public static boolean waitToMove=false;
+	
+	public static Essen essen=new Essen();
+		
+		
+	public static ArrayList <Tail> tl = new ArrayList();
+	
+	//Schlange größer machen
+        
+	public static void addTail() {
+		
+		if(tl.size()<1) {
+			tl.add(new Tail(h.getX(),h.getY()));
+		}
+		
+		else {}
+		tl.add(new Tail(tl.get(tl.size()-1).getX(),tl.get(tl.size()-1).getY()));
+		
+	}
+	
+	//Schlange bewegt sich
+    public static void move() {
+    	while(true) {
+		if(tl.size()>=2) {
+			
+			for(int i=tl.size()-1;i>=1;--i) {
+				if(tl.get(i).isWait()) {
+					
+					tl.get(i).setWait(false);
+				}
+				else {
+					tl.get(i).setX(tl.get(i).getX()-1);
+					tl.get(i).setY(tl.get(i).getY()-1);
+				}
+			}
+		}
+		
+		if(tl.size()>=1) {
+			if(tl.get(0).isWait()) {
+				
+				tl.get(0).setWait(false);
+			}
+			else {
+				tl.get(0).setX(h.getX());
+				tl.get(0).setY(h.getY());
+			}
+			
+		}
+		
+		
+		
+		switch(h.getD()) {
+		
+		case RIGHT:
+			h.setX(h.getX()+1);
+			break;
+		case LEFT:
+			h.setX(h.getX()-1);
+			break;
+		case UP:
+			h.setY(h.getY()-1);
+			break;
+		case DOWN:
+			h.setY(h.getY()+1);
+			break;
+		}
+    	}
+	}
+    
+    public static Point ptc(int x,int y) {
+    	
+    	Point p= new Point(0,0);
+    	p.x=x*32+Gui.xoff;
+    	p.y=y*32+Gui.yoff;
+    	
+    	
+    	return p;
+    	
+    	
+    	
+    }
+	
+	
+	
+	 
+	
+		
+	
+	
+
+}
